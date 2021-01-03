@@ -1,0 +1,23 @@
+namespace {namespace};
+
+use LaraToolbox\EloquentFilters\FilterBase;
+
+class {className} extends FilterBase
+{
+    /**
+     * Registered filters to operate upon.
+     *
+     * @var array
+     */
+    protected $filters = [
+        'example'
+    ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    protected function example()
+    {
+        // return $this->builder->where('', '');
+    }
+}
