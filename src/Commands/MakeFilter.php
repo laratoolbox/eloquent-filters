@@ -4,14 +4,21 @@ namespace LaraToolbox\EloquentFilters\Commands;
 
 use Illuminate\Console\Command;
 
-class ShowTableColumnsCommand extends Command
+class MakeFilter extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'make:filter';
+    protected $signature = 'make:filter {class}';
+
+    /**
+     * The type of class being generated.
+     *
+     * @var string
+     */
+    protected $type = 'Filter';
 
     /**
      * The console command description.
@@ -37,7 +44,7 @@ class ShowTableColumnsCommand extends Command
      */
     public function handle()
     {
-        $filterClass = $this->option('name');
+        $filterClass = $this->argument('class');
 
         $filterContent = str_replace(
             [
@@ -51,18 +58,24 @@ class ShowTableColumnsCommand extends Command
             $this->getStub()
         );
 
+        $filtersPath = config('eloquent_filters.base_folder', app_path('Filters'));
+        if (!is_dir($filtersPath)) {
+            mkdir($filtersPath, 0777, true);
+        }
+
         file_put_contents(
-            "$filterClass.php",
-            config('eloquent_filters.base_folder', app_path('Filters'))
+            "$filtersPath/$filterClass.php",
+            $filterContent
         );
 
         $this->info('Filter created.');
+        $this->info('Add trait into your model: "use \LaraToolbox\EloquentFilters\Traits\Filters;"');
         return 0;
     }
 
     private function getStub()
     {
         // TODO: make stub customizable
-        return '<?php'.PHP_EOL.PHP_EOL.file_get_contents('../stub/filter.stub');
+        return '<?php'.PHP_EOL.PHP_EOL.file_get_contents(dirname(__FILE__).'/../stub/filter.stub');
     }
 }
