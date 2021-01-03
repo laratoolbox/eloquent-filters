@@ -48,7 +48,7 @@ class ShowTableColumnsCommand extends Command
                 config('eloquent_filters.namespace', 'App\Filters'),
                 $filterClass,
             ],
-            file_get_contents('../stub/filter.stub') // TODO: make stub customizable
+            $this->getStub()
         );
 
         file_put_contents(
@@ -58,5 +58,11 @@ class ShowTableColumnsCommand extends Command
 
         $this->info('Filter created.');
         return 0;
+    }
+
+    private function getStub()
+    {
+        // TODO: make stub customizable
+        return '<?php'.PHP_EOL.PHP_EOL.file_get_contents('../stub/filter.stub');
     }
 }

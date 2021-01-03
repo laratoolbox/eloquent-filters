@@ -5,7 +5,7 @@ namespace LaraToolbox\EloquentFilters;
 use Illuminate\Support\ServiceProvider;
 use LaraToolbox\EloquentFilters\Commands\MakeFilter;
 
-class DatabaseViewerServiceProvider extends ServiceProvider
+class PackageServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
