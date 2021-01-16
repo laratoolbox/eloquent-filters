@@ -1,0 +1,20 @@
+<?php
+
+namespace {{ namespace }};
+
+use LaraToolbox\EloquentFilters\Filters;
+
+class {{ class }} extends Filters
+{
+    protected $filters = [
+        // 'name'
+    ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    protected function name()
+    {
+        // return $this->builder->where('name', 'LIKE', sprintf('%%%s%%', $this->request->name));
+    }
+}

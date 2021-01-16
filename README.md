@@ -2,12 +2,14 @@
 
 Create and use eloquent filters easily.
 
+This package idea comes from [Laracasts lets build a forum with laravel](https://laracasts.com/series/lets-build-a-forum-with-laravel) series. 
+
 # Installation
 
 You can install the package via composer:
 
 ```bash
-$ composer require laratoolbox/database-viewer
+$ composer require laratoolbox/eloquent-filters
 ```
 
 # Usage
@@ -18,16 +20,21 @@ First create filter like below.
 php artisan make:filter UserFilter
 ```
 
-After creating the filter, add Filter trait into your eloquent model.
+After creating the filter, add EloquentFilter trait into your eloquent model.
 
 ```php
-use \LaraToolbox\EloquentFilters\Traits\Filters;
+use \LaraToolbox\EloquentFilters\HasFilter;
 ```
 
 Then you may use filter like below.
 
 ```php
-MyEloquentModel::filter( new UserFilter(request()) )->get();
+MyEloquentModel::filter( new UserFilter() )->get();
+
+// or you can give request instance into filter.
+
+$request = request();
+MyEloquentModel::filter( new UserFilter($request) )->get();
 ```
 
 # Testing

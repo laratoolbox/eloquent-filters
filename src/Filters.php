@@ -2,10 +2,10 @@
 
 namespace LaraToolbox\EloquentFilters;
 
-abstract class FilterBase
+abstract class Filters
 {
     /**
-     * @var Request
+     * @var \Illuminate\Http\Request
      */
     protected $request;
 
@@ -24,7 +24,7 @@ abstract class FilterBase
     protected $filters = [];
 
     /**
-     * Create a new ThreadFilters instance.
+     * Create a new Filter instance.
      *
      * @param  \Illuminate\Http\Request  $request
      */
@@ -41,7 +41,6 @@ abstract class FilterBase
      * Apply the filters.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $builder
-     *
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function apply($builder)

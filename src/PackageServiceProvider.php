@@ -3,7 +3,7 @@
 namespace LaraToolbox\EloquentFilters;
 
 use Illuminate\Support\ServiceProvider;
-use LaraToolbox\EloquentFilters\Commands\MakeFilter;
+use LaraToolbox\EloquentFilters\Commands\MakeFilterCommand;
 
 class PackageServiceProvider extends ServiceProvider
 {
@@ -14,7 +14,7 @@ class PackageServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                MakeFilter::class,
+                MakeFilterCommand::class,
             ]);
         }
     }
