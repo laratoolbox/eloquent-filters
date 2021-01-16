@@ -20,7 +20,7 @@ First create filter like below.
 php artisan make:filter UserFilter
 ```
 
-After creating the filter, add EloquentFilter trait into your eloquent model.
+After creating the filter, add HasFilter trait into your eloquent model.
 
 ```php
 use \LaraToolbox\EloquentFilters\HasFilter;
