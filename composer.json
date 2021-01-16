@@ -1,8 +1,9 @@
 {
     "name": "laratoolbox/eloquent-filters",
-    "description": "Add filters to eloquent models",
+    "description": "Easily add filters into eloquent models",
     "keywords": [
         "laratoolbox",
+        "laravel",
         "eloquent",
         "filters"
     ],
@@ -13,6 +14,13 @@
         {
             "name": "Semih ERDOGAN",
             "email": "hasansemiherdogan@gmail.com",
+            "homepage": "https://semiherdogan.net/",
+            "role": "Developer"
+        },
+        {
+            "name": "Dincer DEMIRCIOGLU",
+            "email": "dinncer@gmail.com",
+            "homepage": "https://dincer.info/",
             "role": "Developer"
         }
     ],
